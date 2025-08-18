@@ -126,17 +126,78 @@ console.log("External JS");
 // console.log(x3);
 // x3 = 100
 // console.log(x3);
-debugger;
-console.log("Start");//  start
-console.log(a); // ud
-let b = 10;
-var a;
-console.log(b, a); // 10 ud
-a = 800;
-console.log(c); // ud / not defined
-b = 90;
-console.log(a, c, b); // 800 ud 90
-var c = 60;
-const d = 200;
-console.log(c, d, b);// 60 200 90
-console.log("End");// end 
+// debugger;
+// console.log("Start");//  start
+// console.log(a); // ud
+// let b = 10;
+// var a;
+// console.log(b, a); // 10 ud
+// a = 800;
+// console.log(c); // ud / not defined
+// b = 90;
+// console.log(a, c, b); // 800 ud 90
+// var c = 60;
+// const d = 200;
+// console.log(c, d, b);// 60 200 90
+// console.log("End");// end
+
+//! 2 TYPES OF VARIABLES
+// 1) GLOBAL VARIABLE - var, let and const
+// 2) LOCAL VARIABLE - var, let and const
+
+// if (10 > 2) {
+//   var a1 = 10; // global variable
+//   let b1 = 20; // local variable
+//   const c1 = 30; // local variable
+//   console.log(a1, b1, c1);
+// }
+// console.log(a1); // 10
+// // console.log(b1, c1); //! error, local variables
+
+// function demo1(){
+//     var a2 = 100 // local variable
+//     let b2 = 200 // local variable
+//     const c2 = 300 // local variable
+//     console.log(a2 , b2, c2);
+// }
+// demo1()
+
+// // console.log(a2);//! error, local variable
+
+// var x1 = 10; // global variable - global scope due to Hoisting
+// let y1 = 20; // global variable - script scope due to TDZ
+// const z1 = 30; // global variable - script scope due to TDZ
+
+// if (100 > 5) {
+//   var m1 = 100; // global variable - global scope
+//   let n1 = 200; // local varaible - block scope
+//   const o1 = 300; // local varaible - block scope
+//   console.log(m1, n1, o1);
+// }
+
+// debugger;
+// function demo2() {
+//   var a = 1000; // local variable - local scope
+//   let b = 2000; // local variable - local scope
+//   const c = 3000; // local variable - local scope
+//   console.log(a, b, c);
+// }
+// demo2();
+
+//! FUNCTIONS - 10 types
+
+//! 1) NAMED FUNCTION : FUNCTION WHICH HAS NAME.
+
+greet()// WE CAN CALL greet() DUE TO FUNCTION HOISTING
+
+// function declaration
+function greet(){
+    console.log("Welcome to Javascript");
+}
+
+// function call 
+greet()
+
+
+
+
