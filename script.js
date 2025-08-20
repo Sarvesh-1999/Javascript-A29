@@ -188,15 +188,82 @@ console.log("External JS");
 
 //! 1) NAMED FUNCTION : FUNCTION WHICH HAS NAME.
 
-greet()// WE CAN CALL greet() DUE TO FUNCTION HOISTING
+// greet()// WE CAN CALL greet() DUE TO FUNCTION HOISTING
 
-// function declaration
-function greet(){
-    console.log("Welcome to Javascript");
+// // function declaration
+// function greet(){
+//     console.log("Welcome to Javascript");
+// }
+
+// // function call 
+// greet()
+
+//! 2) ANONYMOUS FUNCTION : FUNCTION WITHOUT NAME
+
+// function () { }
+
+//! 3) FUNCTION EXPRESSION : STORING ANONYMOUS FUNC IN A VARAIBLE AND CALLING THAT FUNCTION USING THAT VARIABLE.
+// FUNCTION EXPRESSION IS USED TO CALL ANONYMOUS FUNC
+
+// let a = function(){
+//     console.log("I am Function Expression")
+// }
+
+// console.log(a);// function(){}
+// a()
+
+
+//! GEC 
+// debugger;
+// console.log("Start");
+// abc()
+// console.log(abc);
+// var a = 10
+// let b;   
+// console.log(b);
+// function abc(){
+//     let data = "Hello"
+//     console.log(data, "I am ABC");
+// }
+// console.log(abc);
+// abc()
+// console.log("End");
+
+
+// console.log("Start");
+// function xyz(){
+//     console.log("I am XYZ")
+// }
+// console.log(greet);
+// xyz()
+// var greet = function(){
+//     console.log("Welcome");
+// }
+// console.log(greet);
+// greet()
+// console.log("End");
+
+
+// var x 
+// console.log(x);// ud
+// x()//! error x is not a function
+// var x = function () {
+//     console.log("Hiii");
+// }
+
+
+//! 4) PARAMETERIZED FUNCTION
+function sum(n1 = 0 ,n2 = 0 ,n3 = 0){
+    let res = n1 + n2 +n3
+    console.log(res);
 }
+sum(10,20)//<-- arguements
+sum(50,10)//<-- arguements
 
-// function call 
-greet()
+
+
+
+
 
 
 
