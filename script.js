@@ -195,7 +195,7 @@ console.log("External JS");
 //     console.log("Welcome to Javascript");
 // }
 
-// // function call 
+// // function call
 // greet()
 
 //! 2) ANONYMOUS FUNCTION : FUNCTION WITHOUT NAME
@@ -212,14 +212,13 @@ console.log("External JS");
 // console.log(a);// function(){}
 // a()
 
-
-//! GEC 
+//! GEC
 // debugger;
 // console.log("Start");
 // abc()
 // console.log(abc);
 // var a = 10
-// let b;   
+// let b;
 // console.log(b);
 // function abc(){
 //     let data = "Hello"
@@ -228,7 +227,6 @@ console.log("External JS");
 // console.log(abc);
 // abc()
 // console.log("End");
-
 
 // console.log("Start");
 // function xyz(){
@@ -243,28 +241,62 @@ console.log("External JS");
 // greet()
 // console.log("End");
 
-
-// var x 
+// var x
 // console.log(x);// ud
 // x()//! error x is not a function
 // var x = function () {
 //     console.log("Hiii");
 // }
 
-
 //! 4) PARAMETERIZED FUNCTION
-function sum(n1 = 0 ,n2 = 0 ,n3 = 0){
-    let res = n1 + n2 +n3
-    console.log(res);
+// function sum(n1 = 0 ,n2 = 0 ,n3 = 0){
+//     let res = n1 + n2 +n3
+//     console.log(res);
+// }
+// sum(10,20)//<-- arguements
+// sum(50,10)//<-- arguements
+
+//! 5) RETURN - TYPE FUNCTION
+// function multiply (n1 = 0,n2 = 0) {
+//     let res = n1 * n2
+//     return res; // 10
+// }
+
+// let returnVal = multiply(5 , 2)
+// console.log(returnVal);// 10
+
+//! 6) REST PARAMETRIZED FUNCTION
+// function demo(a, b, ...c) {
+//   console.log(a, b); // 10 20
+//   console.log("rest para", c); // [30, 40, 50, 60, 70, 80]
+//   console.log(arguments);
+// }
+// demo(10, 20, 30, 40, 50, 60, 70, 80);
+
+//! 7) HIGHER ORDER FUNCTION AND CALLBACK FUNCTION
+
+// function sum(a, b) {
+//   return a + b;
+// }
+
+// function calculate(n1, n2, callback) {
+//   return callback(n1, n2);
+// }
+
+// let x = calculate(10, 20, sum);
+// console.log(x);
+
+
+//! 8) NESTED FUNCTION
+function parent(){
+    var money = 50000
+    console.log(money);
+
+    function child(){
+        let savings = 2000
+        console.log(savings);
+    }
+    child()
+    
 }
-sum(10,20)//<-- arguements
-sum(50,10)//<-- arguements
-
-
-
-
-
-
-
-
-
+parent()
