@@ -286,17 +286,91 @@ console.log("External JS");
 // let x = calculate(10, 20, sum);
 // console.log(x);
 
-
 //! 8) NESTED FUNCTION
-function parent(){
-    var money = 50000
-    console.log(money);
 
-    function child(){
-        let savings = 2000
-        console.log(savings);
-    }
-    child()
-    
+//! EXAMPLE 1
+// function parent(){
+//     var money = 50000
+//     console.log(money);
+
+//     function child(){
+//         let savings = 2000
+//         console.log(savings , money);
+//     }
+//     child()
+
+// }
+// parent()
+
+//! CLOSURE : It is a memory which is created whenever we try to access parent funtion's property inside child function
+
+//! LEXICAL SCOPING : ability of JS Engine to search a variable outside of its current scope
+
+//! EXAMPLE 2
+// function parent(){
+//     var money = 50000
+//     console.log(money);
+
+//     function child(){
+//         let savings = 2000
+//         console.log(savings,money);
+//     }
+//     return child
+
+// }
+// let x = parent()
+// console.log(x);
+// x()
+
+//! EXAMPLE 3
+// function parent() {
+//   var money = 50000;
+//   console.log(money);
+
+//   function child1() {
+//     let savings = 2000;
+//     console.log(savings, money);
+
+//     function child2() {
+//       console.log("I am Child2");
+//     }
+//     return child2;
+//   }
+//   return child1;
+// }
+// parent()()(); // JS CURRYING
+
+//! 9) ARROW FUNCTION - ES6 - FOR SHORTER SYNTAX
+// SYNTAX --->   () => {}
+
+const a1 = () => {
+    console.log("I am Arrow func 1");
 }
-parent()
+a1()
+
+// different ways of writing arrow function
+
+// 1) if having single statement code
+const a2 = () => console.log("I am Arrow func 2")
+
+// 2) if having zero parameter we can replace () with _
+const a3 = _ => {
+    console.log("I am Arrow func 3")
+}
+
+// 3) if having single parameter we can ignore ()
+const a4 = fname => {
+    console.log(fname);
+}
+a4("I am Arrow func 4")
+
+// 4) explicit return - we have to use {} and "return" keyword
+const sum = (n1,n2) => {
+    return n1+n2
+}
+console.log(sum(10,20));
+
+// 5) implicit return - ignore {} and "return" keyword
+const mul = (n1,n2) => n1*n2
+console.log(mul(10,5));
+
