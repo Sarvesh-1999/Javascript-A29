@@ -343,34 +343,199 @@ console.log("External JS");
 //! 9) ARROW FUNCTION - ES6 - FOR SHORTER SYNTAX
 // SYNTAX --->   () => {}
 
-const a1 = () => {
-    console.log("I am Arrow func 1");
-}
-a1()
+// const a1 = () => {
+//     console.log("I am Arrow func 1");
+// }
+// a1()
 
 // different ways of writing arrow function
 
-// 1) if having single statement code
-const a2 = () => console.log("I am Arrow func 2")
+// // 1) if having single statement code
+// const a2 = () => console.log("I am Arrow func 2")
 
-// 2) if having zero parameter we can replace () with _
-const a3 = _ => {
-    console.log("I am Arrow func 3")
+// // 2) if having zero parameter we can replace () with _
+// const a3 = _ => {
+//     console.log("I am Arrow func 3")
+// }
+
+// // 3) if having single parameter we can ignore ()
+// const a4 = fname => {
+//     console.log(fname);
+// }
+// a4("I am Arrow func 4")
+
+// // 4) explicit return - we have to use {} and "return" keyword
+// const sum = (n1,n2) => {
+//     return n1+n2
+// }
+// console.log(sum(10,20));
+
+// // 5) implicit return - ignore {} and "return" keyword
+// const mul = (n1,n2) => n1*n2
+// console.log(mul(10,5));
+
+//! 10) IMMEDIATLY INVOKED FUNCTION EXPRESSION (IIFE)
+// SYNTAX ==>  ( function(){} ) ()
+
+// let x = (function(){
+//     console.log("IIFE Function 1");
+//     return "Hello WOrld"
+// })();
+
+// console.log(x);
+
+// const attendance = (function(){
+//     let count = 0
+//         return function(){
+//             count++
+//             console.log("Present: ",count);
+//         }
+// })();
+
+// attendance()// Present: 1
+// attendance()// Present: 2
+
+//! OBJECTS
+
+//! 3 WAYS OF CREATING OBJECT
+
+//! 1) Using Object Literals
+// let obj1 = {
+//     id : 1 ,
+//     fullname : "John Doe",
+//     course: "Java Full Stack"
+// }
+
+//! 2) Using Object Constuctor
+// let obj2 = new Object({id:2 , fullname:"Clark" ,course : "Mern Stack"})
+
+// console.log(obj1);
+// console.log(obj2);
+
+//! CRUD USING OBJECTS
+
+//!---------> create
+// let Student = {
+//     id: 1,
+//     fullname : "Rohit Raj",
+//     course: "Mern Stack",
+// }
+
+//!---------> read
+//! 1) dot operator
+// console.log(Student.fullname)
+
+//! 2) square brackets
+// let x = "course"
+// console.log(Student[x]) // Mern Stack
+// console.log(Student.x);// ud
+
+//!--------- add a new key
+// Student.yop = 2025
+// Student.demo = "Lorem"
+
+//!------------update
+// Student.yop = 2026
+
+//!------------delete
+// delete Student.demo
+// console.log(Student);
+
+// let arr1 = [10,20,30,40]
+
+// //! for loop
+// for(let i = 0 ; i < arr1.length ; i++){
+//     console.log(typeof i); // number
+// }
+
+// //! for in
+// for(let i in arr1){
+//     console.log(typeof i); // string
+// }
+
+// //! for of
+// for(let i of arr1){
+//     // console.log(i);
+// }
+
+// //! only way to iterate an object is using ---> forin loop
+// let obj3 = {
+//     id:1,
+//     fname:"John",
+//     company:"TCS"
+// }
+
+// for(let i in obj3){
+//     console.log(obj3[i]);
+// }
+
+//! nested object
+
+// let user = {
+//     id: "123A",
+//     fullname : {
+//         firstName : "John",
+//         lastName : "Doe"
+//     },
+//     company: {
+//         companyName : "HCL",
+//         desgination: "Dev",
+//         salary : 50000
+//     },
+//     hobbies : ["coding","football"]
+// }
+
+// access these keys
+// firstName,lastName,companyName
+//  and coding
+
+// console.log(user.fullname.firstName);
+// console.log(user.fullname.lastName);
+// console.log(user.company.companyName);
+// console.log(user.hobbies[0]);
+
+// let sentence = user.fullname.firstName + " " + user.fullname.lastName + " is working at " + user.company.companyName + " with a salary of " + user.company.salary + " and his hobby is " + user.hobbies[0]
+
+// console.log(sentence);
+
+//! DESTRUCTURING
+let obj4 = {
+  id: 1,
+  fname: "Clark",
+  lname: "Kent",
+};
+
+let { fname, lname } = obj4;
+console.log(fname, lname);
+
+let obj5 = {
+    address : {
+        street:"XYZ",
+        pin :456788,
+        area : "ABC"
+    }
+}
+let {address:{area ,street}} = obj5
+console.log(area,street);
+
+let user = {
+    id: "123A",
+    fullname : {
+        firstName : "John",
+        lastName : "Doe"
+    },
+    company: {
+        companyName : "HCL",
+        desgination: "Dev",
+        salary : 50000
+    },
+    hobbies : ["coding","football"]
 }
 
-// 3) if having single parameter we can ignore ()
-const a4 = fname => {
-    console.log(fname);
-}
-a4("I am Arrow func 4")
+let {fullname:{firstName} , company:{companyName,desgination} , hobbies:[h1,h2]} = user
 
-// 4) explicit return - we have to use {} and "return" keyword
-const sum = (n1,n2) => {
-    return n1+n2
-}
-console.log(sum(10,20));
+console.log(firstName , companyName ,desgination , h1);
 
-// 5) implicit return - ignore {} and "return" keyword
-const mul = (n1,n2) => n1*n2
-console.log(mul(10,5));
+
+
 
