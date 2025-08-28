@@ -498,44 +498,120 @@ console.log("External JS");
 
 // console.log(sentence);
 
-//! DESTRUCTURING
-let obj4 = {
-  id: 1,
-  fname: "Clark",
-  lname: "Kent",
+//! OBJECT DESTRUCTURING
+// let obj4 = {
+//   id: 1,
+//   fname: "Clark",
+//   lname: "Kent",
+// };
+
+// let { fname, lname } = obj4;
+// console.log(fname, lname);
+
+// let obj5 = {
+//     address : {
+//         street:"XYZ",
+//         pin :456788,
+//         area : "ABC"
+//     }
+// }
+// let {address:{area ,street}} = obj5
+// console.log(area,street);
+
+// let user = {
+//     id: "123A",
+//     fullname : {
+//         firstName : "John",
+//         lastName : "Doe"
+//     },
+//     company: {
+//         companyName : "HCL",
+//         desgination: "Dev",
+//         salary : 50000
+//     },
+//     hobbies : ["coding","football"]
+// }
+
+// let {fullname:{firstName} , company:{companyName,desgination} , hobbies:[h1,h2]} = user
+
+// console.log(firstName , companyName ,desgination , h1);
+
+// let obj5 = {
+//   id: 1,
+//   fname: "Jane",
+//   lname: "Doe",
+//   company: "TCS",
+//   sal: 60000,
+// };
+
+// let { fname: FirstName ,sal } = obj5;
+// console.log(FirstName); // Jane
+// console.log(sal); // 60000
+
+// let obj6 = {
+//   id: 1,
+//   fname: "Jane",
+//   lname: "Doe",
+//   company: "TCS",
+// };
+
+// change name and default value
+// let {sal:salary = 0} = obj6
+// console.log(salary);
+
+//! "this" keyword
+// console.log(window); // Global Object
+// console.log(this); // Window
+
+// let arr = [this]
+// console.log(arr[0]);// Window
+
+// function abc(){
+//     console.log(this);// Window
+// }
+// abc()
+
+// let obj7 = {
+//     x : this
+// }
+// console.log(obj7.x);// Window
+
+//! HOW TO CREATE A METHOD
+function getEmail() {
+  console.log(this.firstName + "." + this.lastName + "@gmail.com");
+}
+
+function getSubjects(s1, s2) {
+  console.log("Subjects are: ", s1, s2);
+}
+
+let Student = {
+  firstName: "John",
+  lastName: "Doe",
+  //   getEmail
+};
+let Teacher = {
+  firstName: "Clark",
+  lastName: "Kent",
+  //   getEmail
 };
 
-let { fname, lname } = obj4;
-console.log(fname, lname);
+//! IF WE WANT TO CHANGE THE DIRECTION OF THIS KEYWORD
+// call() , apply() and bind()
+// console.log(Student);
 
-let obj5 = {
-    address : {
-        street:"XYZ",
-        pin :456788,
-        area : "ABC"
-    }
-}
-let {address:{area ,street}} = obj5
-console.log(area,street);
+//! 1) call()
+// getEmail.call(Student);
+// getSubjects.call(Student, "HTML", "CSS");
 
-let user = {
-    id: "123A",
-    fullname : {
-        firstName : "John",
-        lastName : "Doe"
-    },
-    company: {
-        companyName : "HCL",
-        desgination: "Dev",
-        salary : 50000
-    },
-    hobbies : ["coding","football"]
-}
+//! 2) apply()
+// getEmail.apply(Teacher);
+// getSubjects.apply(Teacher, ["React", "Node"]);
 
-let {fullname:{firstName} , company:{companyName,desgination} , hobbies:[h1,h2]} = user
+//! 3) bind()
+let boundedEmail = getEmail.bind(Student);
+console.log("getEmail Bound completed");
+boundedEmail();
 
-console.log(firstName , companyName ,desgination , h1);
-
-
-
-
+let boundedSubject = getSubjects.bind(Student, "Java", "SQl");
+boundedSubject();
