@@ -577,24 +577,24 @@ console.log("External JS");
 // console.log(obj7.x);// Window
 
 //! HOW TO CREATE A METHOD
-function getEmail() {
-  console.log(this.firstName + "." + this.lastName + "@gmail.com");
-}
+// function getEmail() {
+//   console.log(this.firstName + "." + this.lastName + "@gmail.com");
+// }
 
-function getSubjects(s1, s2) {
-  console.log("Subjects are: ", s1, s2);
-}
+// function getSubjects(s1, s2) {
+//   console.log("Subjects are: ", s1, s2);
+// }
 
-let Student = {
-  firstName: "John",
-  lastName: "Doe",
-  //   getEmail
-};
-let Teacher = {
-  firstName: "Clark",
-  lastName: "Kent",
-  //   getEmail
-};
+// let Student = {
+//   firstName: "John",
+//   lastName: "Doe",
+//   //   getEmail
+// };
+// let Teacher = {
+//   firstName: "Clark",
+//   lastName: "Kent",
+//   //   getEmail
+// };
 
 //! IF WE WANT TO CHANGE THE DIRECTION OF THIS KEYWORD
 // call() , apply() and bind()
@@ -609,9 +609,112 @@ let Teacher = {
 // getSubjects.apply(Teacher, ["React", "Node"]);
 
 //! 3) bind()
-let boundedEmail = getEmail.bind(Student);
-console.log("getEmail Bound completed");
-boundedEmail();
+// let boundedEmail = getEmail.bind(Student);
+// console.log("getEmail Bound completed");
+// boundedEmail();
 
-let boundedSubject = getSubjects.bind(Student, "Java", "SQl");
-boundedSubject();
+// let boundedSubject = getSubjects.bind(Student, ["Java", "SQl"]);
+// boundedSubject();
+
+//! 3) constructor function
+
+// function Student(id , studentName){
+//   this.id = id
+//   this.studentName = studentName
+//   this.greet = function(){
+//     console.log("Welcome",studentName);
+//   }
+// }
+
+// let s1  = new Student(1 , "Alex")
+// let s2 = new Student(2 , "John")
+
+// console.log(s1);
+// console.log(s2);
+
+// s1.greet()
+// s2.greet()
+
+//! OBJECT METHODS
+// let obj = {
+//   id: 1,
+//   fname: "Alice",
+//   company: "google",
+// };
+
+// //! Object.keys()
+// let keys = Object.keys(obj);
+// console.log(keys); // ["id","fname","company"]
+
+// // Object.values()
+// let values = Object.values(obj);
+// console.log(values); // [1,"Alice","google"]
+
+// // Object.entries()
+// let keysAndValues = Object.entries(obj)
+// console.log(keysAndValues);
+
+// // Object.fromEntries()
+// let value = Object.fromEntries(keysAndValues)
+// console.log(value);
+
+
+//! ARRAY 
+//! 1) array literal
+// let arr1 = [10]
+
+// //! 2) array constructor
+// let arr2 = new Array(10)
+
+// console.log(arr1);// [10] <--- length is 1
+// console.log(arr2);// [empty * 10] <--- length is 10
+
+let arr1 = [10,20,30,40,50]
+//           0  1  2  3  4
+console.log(arr1);
+
+//! ARRAY METHODS
+
+//! 1) push() : append new elements at end of an array an returns new length
+let x1 = arr1.push(100,200,300)
+console.log(x1); // 8 <---- new length
+console.log(arr1); // [10,20,30,40,50,100,200,300]
+
+//! pop() :  removes element from the end of an array an returns it
+let x2 = arr1.pop()
+console.log(x2); // 300
+console.log(arr1); // [10,20,30,40,50,100,200]
+
+//! unshift() : append new elements at 0th index of an array an returns new length
+let x3 = arr1.unshift("hello" , "js")
+console.log(x3); // 9 <---- new length
+console.log(arr1); // ["hello","js",10,20,30,40,50,100,200]
+
+//! shift() : removes element from the 0th index of an array an returns it
+let x4 = arr1.shift()
+console.log(x4); // "hello"
+console.log(arr1); // ["js",10,20,30,40,50,100,200]
+
+//! splice(startIndex , deleteCount, newElements)
+let arr2 = [10,20,30,40,50]
+arr2.splice(1,3)
+console.log(arr2); // [10,50]
+
+let arr3 = [10,20,30,40,50] 
+arr3.splice(3,0,"Hello")
+console.log(arr3);// [10,20,30,"Hello",40,50]
+
+let arr4 = [10,20,30,40]
+arr4.splice(0, 1 , "Js","React")
+console.log(arr4);// ['Js','React',20, 30, 40]
+
+
+
+
+
+
+
+
+
+
+
