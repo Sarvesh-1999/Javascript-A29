@@ -658,8 +658,7 @@ console.log("External JS");
 // let value = Object.fromEntries(keysAndValues)
 // console.log(value);
 
-
-//! ARRAY 
+//! ARRAY
 //! 1) array literal
 // let arr1 = [10]
 
@@ -669,52 +668,127 @@ console.log("External JS");
 // console.log(arr1);// [10] <--- length is 1
 // console.log(arr2);// [empty * 10] <--- length is 10
 
-let arr1 = [10,20,30,40,50]
-//           0  1  2  3  4
-console.log(arr1);
+// let arr1 = [10,20,30,40,50]
+// //           0  1  2  3  4
+// console.log(arr1);
 
-//! ARRAY METHODS
+// //! ARRAY METHODS
 
-//! 1) push() : append new elements at end of an array an returns new length
-let x1 = arr1.push(100,200,300)
-console.log(x1); // 8 <---- new length
-console.log(arr1); // [10,20,30,40,50,100,200,300]
+// //! 1) push() : append new elements at end of an array an returns new length
+// let x1 = arr1.push(100,200,300)
+// console.log(x1); // 8 <---- new length
+// console.log(arr1); // [10,20,30,40,50,100,200,300]
 
-//! pop() :  removes element from the end of an array an returns it
-let x2 = arr1.pop()
-console.log(x2); // 300
-console.log(arr1); // [10,20,30,40,50,100,200]
+// //! pop() :  removes element from the end of an array an returns it
+// let x2 = arr1.pop()
+// console.log(x2); // 300
+// console.log(arr1); // [10,20,30,40,50,100,200]
 
-//! unshift() : append new elements at 0th index of an array an returns new length
-let x3 = arr1.unshift("hello" , "js")
-console.log(x3); // 9 <---- new length
-console.log(arr1); // ["hello","js",10,20,30,40,50,100,200]
+// //! unshift() : append new elements at 0th index of an array an returns new length
+// let x3 = arr1.unshift("hello" , "js")
+// console.log(x3); // 9 <---- new length
+// console.log(arr1); // ["hello","js",10,20,30,40,50,100,200]
 
-//! shift() : removes element from the 0th index of an array an returns it
-let x4 = arr1.shift()
-console.log(x4); // "hello"
-console.log(arr1); // ["js",10,20,30,40,50,100,200]
+// //! shift() : removes element from the 0th index of an array an returns it
+// let x4 = arr1.shift()
+// console.log(x4); // "hello"
+// console.log(arr1); // ["js",10,20,30,40,50,100,200]
 
-//! splice(startIndex , deleteCount, newElements)
-let arr2 = [10,20,30,40,50]
-arr2.splice(1,3)
-console.log(arr2); // [10,50]
+// //! splice(startIndex , deleteCount, newElements)
+// let arr2 = [10,20,30,40,50]
+// arr2.splice(1,3)
+// console.log(arr2); // [10,50]
 
-let arr3 = [10,20,30,40,50] 
-arr3.splice(3,0,"Hello")
-console.log(arr3);// [10,20,30,"Hello",40,50]
+// let arr3 = [10,20,30,40,50]
+// arr3.splice(3,0,"Hello")
+// console.log(arr3);// [10,20,30,"Hello",40,50]
 
-let arr4 = [10,20,30,40]
-arr4.splice(0, 1 , "Js","React")
-console.log(arr4);// ['Js','React',20, 30, 40]
+// let arr4 = [10,20,30,40]
+// arr4.splice(0, 1 , "Js","React")
+// console.log(arr4);// ['Js','React',20, 30, 40]
 
+//! 6) slice(startIndex, endIndex)
+// it ignore the last index
+// it will not affect the original array
+// it returns sliced array (copied elements)
 
+// let arr5 = [10, 20, 30, 40];
+// //           0  1  2  3
 
+// let slicedArr = arr5.slice(1, 3);
+// console.log(slicedArr); // [20,30]
+// console.log(arr5); // [10,20,30,40]
 
+// //! 7) includes() : checks weather element is present in an array or not, returns boolean value
+// let arr6 = [10, 200, 30, 400];
+// console.log(arr6.includes(200)); // true
+// console.log(arr6.includes(500)); // false
 
+// //! 8) indexOf() : accepts an element in arguement and returns its index value, if not present returns -1
+// console.log(arr6.indexOf(30)); // 2
+// console.log(arr6.indexOf(300)); // -1
 
+// //! 9) concat() : to merge two or more array into a single array
+// let arr7 = [100, 200, 300, 400];
+// let arr8 = [10, 20, 30, 40];
+// let arr9 = [101, 201];
+// console.log(arr7.concat(arr8, arr9));
+// // [100,200,300,400,10,20,30,40,101,201]
 
+// //! 10) reverse() : to reverse an array
+// let arr10 = [78,68,58,48]
+// console.log(arr10.reverse());// [48,58,68,78]
 
+// //! 11) sort() : to sort an array
+// let arr11 = [50,10,40,20,30]
+// console.log(arr11.sort()); // asc
 
+// console.log(arr11.sort((a,b)=> a-b)); // asc
+// console.log(arr11.sort((a,b)=> b-a)); // desc
 
+// let arr12 = [1014,2071,1000,2401,5989,3978]
+// console.log(arr12.sort());
 
+// let arr13 = [10,100,3,600,2,105]
+// //! lexographical sorting
+// console.log(arr13.sort());// [10, 100, 105, 2, 3, 600]
+// console.log(arr13.sort((a,b) => a-b));// [2, 3, 10, 100, 105, 600]
+
+//! forEach()
+// let arr14 = [10, 20, 30, 40, 50];
+
+// let val1 = arr14.forEach((ele, idx, arr) => {
+//   console.log(ele, idx, arr);
+//   return ele+5
+// });
+// console.log("Return value of forEach : ",val1); // undefined
+
+// //! map()
+// let val2 = arr14.map((ele, idx, arr) => {
+//   console.log(ele, idx, arr);
+//   return ele + 5
+// });
+// console.log("Return value of map : ", val2); // [15,25,35,45,55] <-- new Array
+
+//! filter()
+let arr15 = [10, 20, 30, 40, 50, 60];
+let filteredArr = [];
+for (let i = 0; i < arr15.length; i++) {
+  if (arr15[i] > 30) {
+    filteredArr.push(arr15[i]);
+  }
+}
+console.log(filteredArr); // [40,50,60]
+
+let val3 = arr15.filter((ele) => ele > 30);
+console.log(val3); // [40,50,60]
+
+//! find()
+let val4 = arr15.find((ele) => ele == 20);
+console.log(val4);
+
+//! findIndex()
+let val5 = arr15.findIndex((ele) => ele == 20);
+console.log(val5);
+
+//! reduce()
