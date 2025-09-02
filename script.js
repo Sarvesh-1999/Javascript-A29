@@ -770,25 +770,97 @@ console.log("External JS");
 // });
 // console.log("Return value of map : ", val2); // [15,25,35,45,55] <-- new Array
 
-//! filter()
-let arr15 = [10, 20, 30, 40, 50, 60];
-let filteredArr = [];
-for (let i = 0; i < arr15.length; i++) {
-  if (arr15[i] > 30) {
-    filteredArr.push(arr15[i]);
-  }
-}
-console.log(filteredArr); // [40,50,60]
+// //! filter()
+// let arr15 = [10, 20, 30, 40, 50, 60];
+// let filteredArr = [];
+// for (let i = 0; i < arr15.length; i++) {
+//   if (arr15[i] > 30) {
+//     filteredArr.push(arr15[i]);
+//   }
+// }
+// console.log(filteredArr); // [40,50,60]
 
-let val3 = arr15.filter((ele) => ele > 30);
-console.log(val3); // [40,50,60]
+// let val3 = arr15.filter((ele) => ele > 30);
+// console.log(val3); // [40,50,60]
 
-//! find()
-let val4 = arr15.find((ele) => ele == 20);
-console.log(val4);
+// //! find()
+// let val4 = arr15.find((ele) => ele == 20);
+// console.log(val4);
 
-//! findIndex()
-let val5 = arr15.findIndex((ele) => ele == 20);
-console.log(val5);
+// //! findIndex()
+// let val5 = arr15.findIndex((ele) => ele == 20);
+// console.log(val5);
 
 //! reduce()
+
+// let arr16 = [10, 20, 30, 40, 50];
+
+// let sum = 0;
+// for (let i = 0; i < arr16.length; i++) {
+//   sum += arr16[i];
+// }
+// console.log(sum); // 150
+
+// let sum  = arr16.reduce((acc, ele)=> {
+//   console.log(acc , ele);
+//   return acc + ele
+// } , 0)
+// console.log(sum); // 150
+
+//! PROMISES :  its an object
+// let users = [
+//   {id: 1 , ename : "John"},
+//   {id: 2 , ename : "Jane"}
+// ]
+// let errMessage = {message : "Something went wrong ❌"}
+
+// let p1 = new Promise((resolve, reject) => {
+//   if (10 > 2) {
+//     resolve(users);
+//   } else {
+//     reject(errMessage);
+//   }
+// });
+
+// console.log(p1);
+
+// //! PromiseState: fullfilled
+// p1.then((response)=>{
+//   console.log(response); // [{},{}]
+
+//   response.forEach((ele)=>{
+//     let {id , ename} = ele
+//     document.writeln(ename);
+//   })
+
+// })
+
+// //! PromiseState: rejected
+// p1.catch((error)=>{
+//   document.writeln(error.message);
+// })
+
+// //! PromiseState: fullfilled or rejected
+// p1.finally(()=>{
+//   console.log("---------- API CALLED --------");
+// })
+
+//! JSON
+
+//  JS TO JSON ==> JSON.stringify()
+//  JSON TO JS ==> JSON.parse()
+
+let obj = { id: 1, fname: "Bruce" };
+console.log(obj);
+
+let jsonObj = JSON.stringify(obj)
+console.log(jsonObj);
+
+let jsObj = JSON.parse(jsonObj)
+console.log(jsObj);
+
+// fetch("https://example.com/users",{
+//   method:"POST",
+//   body : JSON.stringify(obj)
+// })
+
