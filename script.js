@@ -792,7 +792,6 @@ console.log("External JS");
 // console.log(val5);
 
 //! reduce()
-
 // let arr16 = [10, 20, 30, 40, 50];
 
 // let sum = 0;
@@ -847,20 +846,112 @@ console.log("External JS");
 
 //! JSON
 
-//  JS TO JSON ==> JSON.stringify()
-//  JSON TO JS ==> JSON.parse()
+//!  JS TO JSON ==> JSON.stringify()
+//!  JSON TO JS ==> JSON.parse()
 
-let obj = { id: 1, fname: "Bruce" };
-console.log(obj);
+// let obj = { id: 1, fname: "Bruce" };
+// console.log(obj);
 
-let jsonObj = JSON.stringify(obj)
-console.log(jsonObj);
+// let jsonObj = JSON.stringify(obj)
+// console.log(jsonObj);
 
-let jsObj = JSON.parse(jsonObj)
-console.log(jsObj);
+// let jsObj = JSON.parse(jsonObj)
+// console.log(jsObj);
 
+//! fetch example
 // fetch("https://example.com/users",{
 //   method:"POST",
 //   body : JSON.stringify(obj)
 // })
 
+//! API CALL
+// https://jsonplaceholder.typicode.com/albums
+// https://jsonplaceholder.typicode.com/posts
+// https://jsonplaceholder.typicode.com/photos
+// https://jsonplaceholder.typicode.com/todos
+
+// let p1 = fetch("https://jsonplaceholder.typicode.com/todos");
+// console.log(p1);
+// /*
+// Promise{
+//     prototype:[[]]
+//     PromiseState : "Fullfilled",
+//     PromiseResult : Response
+// }
+// */
+
+// p1.then((response) => {
+//   let p2 = response.json();//! converts json to js and returns a promise with js data
+//   console.log(p2);
+// /*
+//     Promise{
+//     prototype:[[]]
+//     PromiseState : "Fullfilled",
+//     PromiseResult : Array(200)
+// }*/
+//   p2.then((data) => {
+//     console.log(data); // [{},{},{},....]
+//   });
+
+//   p2.catch((err) => {
+//     console.log(err);
+//   });
+// });
+
+// p1.catch((err) => {
+//   console.log("Error while api call", err);
+// });
+
+// let promise1 = fetch("https://jsonplaceholder.typicode.com/photos")
+// promise1.then((res) => {
+//     let promise2 = res.json()
+
+//     promise2.then((data)=>{
+//         console.log(data);
+//     })
+
+//     promise2.catch((err)=>{
+//         console.log(err);
+//     })
+// })
+
+// promise1.catch((err)=>{
+//     console.log(err);
+// })
+
+//! async and await
+let getAlbums = async () => {
+  try {
+    let res = await fetch("https://placeholder.typicode.com/albums");
+    let data = await res.json();
+    console.log(data); //[{},{},...]
+
+    diplayAlbums({ success: true, data });
+  } catch (error) {
+    console.log(error);
+
+    diplayAlbums({ success: false, message: "something went wrong" });
+  }
+};
+getAlbums();
+
+function diplayAlbums(dbData) {
+  if (dbData.success) {
+    // to display data on UI
+    dbData.data.map((ele)=>{
+        document.writeln(`<h1>${ele.title}</h1>`)
+    })
+  } else {
+    // to display err message on UI
+    document.writeln(`<h1>${dbData.message}</h1>`);
+  }
+}
+
+// let fname = "John";
+// let lname = "Doe";
+
+// //! string concatination
+// console.log("Student name is : " + fname + " " + lname);
+
+// //! string interpolation : template literals
+// console.log(`Student name is : ${fname} ${lname}`);
