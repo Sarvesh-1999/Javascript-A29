@@ -920,32 +920,32 @@ console.log("External JS");
 // })
 
 //! async and await
-let getAlbums = async () => {
-  try {
-    let res = await fetch("https://placeholder.typicode.com/albums");
-    let data = await res.json();
-    console.log(data); //[{},{},...]
+// let getAlbums = async () => {
+//   try {
+//     let res = await fetch("https://placeholder.typicode.com/albums");
+//     let data = await res.json();
+//     console.log(data); //[{},{},...]
 
-    diplayAlbums({ success: true, data });
-  } catch (error) {
-    console.log(error);
+//     diplayAlbums({ success: true, data });
+//   } catch (error) {
+//     console.log(error);
 
-    diplayAlbums({ success: false, message: "something went wrong" });
-  }
-};
-getAlbums();
+//     diplayAlbums({ success: false, message: "something went wrong" });
+//   }
+// };
+// getAlbums();
 
-function diplayAlbums(dbData) {
-  if (dbData.success) {
-    // to display data on UI
-    dbData.data.map((ele)=>{
-        document.writeln(`<h1>${ele.title}</h1>`)
-    })
-  } else {
-    // to display err message on UI
-    document.writeln(`<h1>${dbData.message}</h1>`);
-  }
-}
+// function diplayAlbums(dbData) {
+//   if (dbData.success) {
+//     // to display data on UI
+//     dbData.data.map((ele)=>{
+//         document.writeln(`<h1>${ele.title}</h1>`)
+//     })
+//   } else {
+//     // to display err message on UI
+//     document.writeln(`<h1>${dbData.message}</h1>`);
+//   }
+// }
 
 // let fname = "John";
 // let lname = "Doe";
@@ -955,3 +955,63 @@ function diplayAlbums(dbData) {
 
 // //! string interpolation : template literals
 // console.log(`Student name is : ${fname} ${lname}`);
+
+//! LocalStorage and SessionStorage
+
+// localStorage : no expiry date
+// sessionStorage : has expiry date
+
+// to storeData : setItem("key", value)
+// to getData : getItem("key")
+// to removeData : removeItem("key")
+// to clear storage : clear()
+
+function storeDataInLocalStorage(){
+  //! String values
+  let value = "hello"
+  localStorage.setItem("newData" , value)
+
+  //! Object value
+  let obj = { text:"Hello World" }
+  localStorage.setItem("objectData", JSON.stringify(obj))
+
+  //! Array value
+  let arr = [10,20,30]
+  localStorage.setItem("arrayData",JSON.stringify(arr))
+}
+// storeDataInLocalStorage()
+
+function getDataFromLocalStorage(){
+  let strData = localStorage.getItem("newData")
+  let arrData = JSON.parse(localStorage.getItem("arrayData"))
+  let objData = JSON.parse(localStorage.getItem("objectData"))
+  console.log(strData);
+  console.log(arrData);
+  console.log(objData);
+}
+// getDataFromLocalStorage()
+
+function removeDataFromLocalStorage(){
+  localStorage.removeItem("newData")
+}
+// removeDataFromLocalStorage()
+
+function clearLocalStorage(){
+  localStorage.clear()
+}
+// clearLocalStorage()
+
+
+//! setInterval() and setTimeout()
+
+//SYNTAX --->  setInterval(callbackFunc , intervalTime)
+
+let intervalId = setInterval(()=>{
+  console.log("Hello JS");
+}, 2000)
+
+
+setTimeout(()=>{
+  console.log("Time out");
+  clearInterval(intervalId)
+} , 8000) 
