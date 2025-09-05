@@ -144,7 +144,6 @@ console.log("External JS");
 //! 2 TYPES OF VARIABLES
 // 1) GLOBAL VARIABLE - var, let and const
 // 2) LOCAL VARIABLE - var, let and const
-
 // if (10 > 2) {
 //   var a1 = 10; // global variable
 //   let b1 = 20; // local variable
@@ -190,12 +189,12 @@ console.log("External JS");
 
 // greet()// WE CAN CALL greet() DUE TO FUNCTION HOISTING
 
-// // function declaration
+// // // function declaration
 // function greet(){
 //     console.log("Welcome to Javascript");
 // }
 
-// // function call
+// // // function call
 // greet()
 
 //! 2) ANONYMOUS FUNCTION : FUNCTION WITHOUT NAME
@@ -204,7 +203,6 @@ console.log("External JS");
 
 //! 3) FUNCTION EXPRESSION : STORING ANONYMOUS FUNC IN A VARAIBLE AND CALLING THAT FUNCTION USING THAT VARIABLE.
 // FUNCTION EXPRESSION IS USED TO CALL ANONYMOUS FUNC
-
 // let a = function(){
 //     console.log("I am Function Expression")
 // }
@@ -257,6 +255,7 @@ console.log("External JS");
 // sum(50,10)//<-- arguements
 
 //! 5) RETURN - TYPE FUNCTION
+// debugger;
 // function multiply (n1 = 0,n2 = 0) {
 //     let res = n1 * n2
 //     return res; // 10
@@ -266,14 +265,30 @@ console.log("External JS");
 // console.log(returnVal);// 10
 
 //! 6) REST PARAMETRIZED FUNCTION
+// debugger;
 // function demo(a, b, ...c) {
-//   console.log(a, b); // 10 20
+//  let sum =  a+b
+//  let sum2 = c.reduce((acc,ele) => acc+ele)
+//  console.log(sum2);
+
 //   console.log("rest para", c); // [30, 40, 50, 60, 70, 80]
-//   console.log(arguments);
+//   // console.log(arguments);
+//   return [sum,sum2 ]
 // }
-// demo(10, 20, 30, 40, 50, 60, 70, 80);
+// let x = demo(10, 20, 30, 40, 50, 60, 70, 80);
+// console.log(x);
 
 //! 7) HIGHER ORDER FUNCTION AND CALLBACK FUNCTION
+// debugger;
+// function greet() {
+//   console.log("welcome");
+// }
+
+// function abc(x) {
+//   console.log(x);
+// }
+// abc(greet);
+
 
 // function sum(a, b) {
 //   return a + b;
@@ -289,6 +304,7 @@ console.log("External JS");
 //! 8) NESTED FUNCTION
 
 //! EXAMPLE 1
+// debugger;
 // function parent(){
 //     var money = 50000
 //     console.log(money);
@@ -301,6 +317,8 @@ console.log("External JS");
 
 // }
 // parent()
+
+
 
 //! CLOSURE : It is a memory which is created whenever we try to access parent funtion's property inside child function
 
@@ -376,6 +394,7 @@ console.log("External JS");
 
 //! 10) IMMEDIATLY INVOKED FUNCTION EXPRESSION (IIFE)
 // SYNTAX ==>  ( function(){} ) ()
+
 
 // let x = (function(){
 //     console.log("IIFE Function 1");
@@ -652,7 +671,7 @@ console.log("External JS");
 
 // // Object.entries()
 // let keysAndValues = Object.entries(obj)
-// console.log(keysAndValues);
+// console.log(keysAndValues); // [ [id , 1] , [] , [] ]
 
 // // Object.fromEntries()
 // let value = Object.fromEntries(keysAndValues)
@@ -713,7 +732,7 @@ console.log("External JS");
 // it returns sliced array (copied elements)
 
 // let arr5 = [10, 20, 30, 40];
-// //           0  1  2  3
+// //           0  1    2  3
 
 // let slicedArr = arr5.slice(1, 3);
 // console.log(slicedArr); // [20,30]
@@ -750,6 +769,7 @@ console.log("External JS");
 // console.log(arr12.sort());
 
 // let arr13 = [10,100,3,600,2,105]
+
 // //! lexographical sorting
 // console.log(arr13.sort());// [10, 100, 105, 2, 3, 600]
 // console.log(arr13.sort((a,b) => a-b));// [2, 3, 10, 100, 105, 600]
@@ -966,52 +986,53 @@ console.log("External JS");
 // to removeData : removeItem("key")
 // to clear storage : clear()
 
-function storeDataInLocalStorage(){
-  //! String values
-  let value = "hello"
-  localStorage.setItem("newData" , value)
+// function storeDataInLocalStorage(){
+//   //! String values
+//   let value = "hello"
+//   localStorage.setItem("newData" , value)
 
-  //! Object value
-  let obj = { text:"Hello World" }
-  localStorage.setItem("objectData", JSON.stringify(obj))
+//   //! Object value
+//   let obj = { text:"Hello World" }
+//   localStorage.setItem("objectData", JSON.stringify(obj))
 
-  //! Array value
-  let arr = [10,20,30]
-  localStorage.setItem("arrayData",JSON.stringify(arr))
-}
-// storeDataInLocalStorage()
+//   //! Array value
+//   let arr = [10,20,30]
+//   localStorage.setItem("arrayData",JSON.stringify(arr))
+// }
+// // storeDataInLocalStorage()
 
-function getDataFromLocalStorage(){
-  let strData = localStorage.getItem("newData")
-  let arrData = JSON.parse(localStorage.getItem("arrayData"))
-  let objData = JSON.parse(localStorage.getItem("objectData"))
-  console.log(strData);
-  console.log(arrData);
-  console.log(objData);
-}
-// getDataFromLocalStorage()
+// function getDataFromLocalStorage(){
+//   let strData = localStorage.getItem("newData")
+//   let arrData = JSON.parse(localStorage.getItem("arrayData"))
+//   let objData = JSON.parse(localStorage.getItem("objectData"))
+//   console.log(strData);
+//   console.log(arrData);
+//   console.log(objData);
+// }
+// // getDataFromLocalStorage()
 
-function removeDataFromLocalStorage(){
-  localStorage.removeItem("newData")
-}
-// removeDataFromLocalStorage()
+// function removeDataFromLocalStorage(){
+//   localStorage.removeItem("newData")
+// }
+// // removeDataFromLocalStorage()
 
-function clearLocalStorage(){
-  localStorage.clear()
-}
+// function clearLocalStorage(){
+//   localStorage.clear()
+// }
 // clearLocalStorage()
-
 
 //! setInterval() and setTimeout()
 
 //SYNTAX --->  setInterval(callbackFunc , intervalTime)
 
-let intervalId = setInterval(()=>{
-  console.log("Hello JS");
-}, 2000)
+// let intervalId = setInterval(()=>{
+//   console.log("Hello JS");
+// }, 2000)
+
+// setTimeout(()=>{
+//   console.log("Time out");
+//   clearInterval(intervalId)
+// } , 8000)
 
 
-setTimeout(()=>{
-  console.log("Time out");
-  clearInterval(intervalId)
-} , 8000) 
+
