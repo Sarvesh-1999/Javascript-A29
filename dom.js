@@ -242,36 +242,113 @@
 // formTag.append(emailInput , brTag1 , passwordInput, brTag2, submitButton)
 // document.body.append(formTag)
 
-
 // ! DOM EVENTS
-function singleClick(){
-    console.log("single click");
+function singleClick() {
+  console.log("single click");
 }
 
-function doubleClick(){
-    console.log("double click");
+function doubleClick() {
+  console.log("double click");
 }
 
-function mouseEntered(){
-    console.log("mouse entered");
+function mouseEntered() {
+  console.log("mouse entered");
 }
 
-function mouseLeft(){
-    console.log("mouse left");
+function mouseLeft() {
+  console.log("mouse left");
 }
 
-function mouseMoved(){
-    console.log("mouse moved");
+function mouseMoved() {
+  console.log("mouse moved");
 }
 
-function keyPressed(){
-    console.log("key is pressed");
+function keyPressed() {
+  console.log("key is pressed");
 }
 
-function keyReleased(){
-    console.log("key is released");
+function keyReleased() {
+  console.log("key is released");
 }
 
-function inputChange(){
-    console.log("input is changed");
+function inputChange() {
+  console.log("input is changed");
 }
+
+//! addEventListener("event" , ()=>{} , useCapture)
+
+let btn1 = document.createElement("button");
+btn1.innerText = "Click me";
+
+btn1.addEventListener("click", () => {
+  console.log("Button clicked");
+});
+
+document.body.append(btn1);
+
+//! create a form using DOM
+// const formTag = document.createElement("form");
+// const emailInput = document.createElement("input");
+// const passwordInput = document.createElement("input");
+// const submitButton = document.createElement("button");
+
+// emailInput.type = "email";
+// emailInput.placeholder = "Enter Email";
+// passwordInput.type = "password";
+// passwordInput.placeholder = "Enter Password";
+// submitButton.type = "submit";
+// submitButton.innerText = "submit";
+
+// formTag.addEventListener("submit", (event) => {
+//   event.preventDefault(); // stops page refresh (default behaviour of form)
+//   let userData = {
+//     email: emailInput.value,
+//     password: passwordInput.value,
+//   };
+//   console.log(userData);
+// });
+
+// formTag.append(emailInput, passwordInput, submitButton);
+// document.body.append(formTag);
+
+
+//!  WAY 1
+// const formEle = document.getElementById("form-element")
+// const email = document.getElementById("email")
+// const password = document.getElementById("password")
+
+// formEle.addEventListener("submit",(e)=>{
+//     e.preventDefault()
+//     let data = {
+//         email : email.value,
+//         password : password.value
+//     }
+//     console.log(data);
+// })
+
+//! WAY 2
+// const formEle = document.getElementById("form-element")
+
+// formEle.addEventListener("submit",(e)=>{
+//     e.preventDefault()
+//     let data = {
+//         email : e.target[0].value,
+//         password : e.target[1].value
+//     }
+//     console.log(data);
+// })
+
+//! RAINBOW TASK    
+const divs = document.querySelectorAll("div")
+
+divs.forEach((ele)=>{
+    
+   ele.addEventListener("mouseenter",()=>{
+    ele.style.backgroundColor = ele.innerText
+   })
+
+   ele.addEventListener("mouseleave",()=>{
+    ele.style.backgroundColor = "white"
+   })
+
+})
