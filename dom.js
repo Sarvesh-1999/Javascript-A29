@@ -339,16 +339,55 @@ document.body.append(btn1);
 // })
 
 //! RAINBOW TASK    
-const divs = document.querySelectorAll("div")
+// const divs = document.querySelectorAll("div")
 
-divs.forEach((ele)=>{
+// divs.forEach((ele)=>{
     
-   ele.addEventListener("mouseenter",()=>{
-    ele.style.backgroundColor = ele.innerText
-   })
+//    ele.addEventListener("mouseenter",()=>{
+//     ele.style.backgroundColor = ele.innerText
+//    })
 
-   ele.addEventListener("mouseleave",()=>{
-    ele.style.backgroundColor = "white"
-   })
+//    ele.addEventListener("mouseleave",()=>{
+//     ele.style.backgroundColor = "white"
+//    })
 
+// })
+
+//! EVENT PROPAGATION :  it means how event travels in DOM tree it occurs in 2 phases : a) bubbling phase(default) b) capturing phase.
+
+//! a) BUBBLING PHASE (0) : Event travels from targetted element to root element
+//! b) CAPTURING PHASE (1) : Event travels from root element to targetted element
+
+//! stopPropagation() : its used to stop the event to travel either in bubbling or in capturing phase.
+
+const section = document.querySelector("section")
+const article = document.querySelector("article")
+const div = document.querySelector("div")
+
+section.addEventListener("click",(e)=>{
+  e.stopPropagation()
+  console.log("I am section");
+  section.style.backgroundColor = "red"
+},0)
+
+article.addEventListener("click",(e)=>{
+  e.stopPropagation()
+  console.log("I am article");
+  article.style.backgroundColor = "yellow"
+},0)
+
+div.addEventListener("click",(e)=>{
+  // e.stopPropagation()
+  e.stopImmediatePropagation()
+  console.log("I am div");
+  div.style.backgroundColor = "orange"
+},0)
+
+div.addEventListener("click",()=>{
+  console.log("I am Second Event of div");
 })
+
+
+
+
+  
