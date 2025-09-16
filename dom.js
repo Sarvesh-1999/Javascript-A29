@@ -360,6 +360,8 @@ document.body.append(btn1);
 
 //! stopPropagation() : its used to stop the event to travel either in bubbling or in capturing phase.
 
+// ! stopImmediatePropagation :   its used to stop the event to travel either in bubbling or in capturing phase and it also prevents the other listeners to get executed
+
 const section = document.querySelector("section")
 const article = document.querySelector("article")
 const div = document.querySelector("div")
